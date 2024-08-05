@@ -6,16 +6,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
+exports.TrpcModule = void 0;
 const common_1 = require("@nestjs/common");
-const auth_module_1 = require("./auth/auth.module");
-const trpc_module_1 = require("./trpc/trpc.module");
-let AppModule = class AppModule {
+const trpc_router_1 = require("./trpc.router");
+const trpc_service_1 = require("./trpc.service");
+const auth_module_1 = require("../auth/auth.module");
+let TrpcModule = class TrpcModule {
 };
-exports.AppModule = AppModule;
-exports.AppModule = AppModule = __decorate([
+exports.TrpcModule = TrpcModule;
+exports.TrpcModule = TrpcModule = __decorate([
     (0, common_1.Module)({
-        imports: [auth_module_1.AuthModule, trpc_module_1.TrpcModule],
+        imports: [auth_module_1.AuthModule],
+        providers: [trpc_router_1.TrpcRouter, trpc_service_1.TrpcService],
+        exports: [trpc_service_1.TrpcService],
     })
-], AppModule);
-//# sourceMappingURL=app.module.js.map
+], TrpcModule);
+//# sourceMappingURL=trpc.module.js.map

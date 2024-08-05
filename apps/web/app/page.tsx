@@ -1,21 +1,9 @@
-'use client'
+// import Login from './auth/login/page'
 
-import { useState, useEffect } from 'react'
-
-export default function Home() {
-  const [message, setMessage] = useState('')
-
-  useEffect(() => {
-    fetch('http://localhost:4000')
-      .then(response => response.text())
-      .then(data => setMessage(data))
-      .catch(error => console.error('Error:', error))
-  }, [])
-
-  return (
-    <main>
-      <h1>Welcome to the Movie App</h1>
-      <p>Message from backend: {message}</p>
-    </main>
-  )
-}
+// export default function Home() {
+//   return (
+//     <main>
+//       <Login />
+//     </main>
+//   )
+// }

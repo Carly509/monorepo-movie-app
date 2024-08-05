@@ -1,9 +1,13 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { TrpcService } from './trpc/trpc.service';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableCors(); // This line enables CORS
-  await app.listen(4000);
+
+  const trpcService = app.get(TrpcService);
+  trpcService.applyMiddleware(app);
+
+  await app.listen(3001);
 }
 bootstrap();
