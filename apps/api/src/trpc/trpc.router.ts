@@ -2,13 +2,13 @@ import { Injectable } from '@nestjs/common';
 import { initTRPC } from '@trpc/server';
 import { z } from 'zod';
 import { AuthService } from '../auth/auth.service';
-// import { MoviesService } from '../movies/movies.service';
+import { MoviesService } from '../movies/movies.service';
 
 @Injectable()
 export class TrpcRouter {
   constructor(
     private authService: AuthService,
-    // private moviesService: MoviesService,
+    private moviesService: MoviesService,
   ) {}
 
   t = initTRPC.create();
@@ -36,45 +36,45 @@ export class TrpcRouter {
         return this.authService.login(input.email, input.password);
       }),
 
-    // getMovies: this.t.procedure
-    //   .input(z.object({ userId: z.number() }))
-    //   .query(async ({ input }) => {
-    //     return this.moviesService.getMovies(input.userId);
-    //   }),
+    getMovies: this.t.procedure
+      .input(z.object({ userId: z.number() }))
+      .query(async ({ input }) => {
+        return this.moviesService.getMovies(input.userId);
+      }),
 
-    // addMovie: this.t.procedure
-    //   .input(
-    //     z.object({
-    //       userId: z.number(),
-    //       title: z.string(),
-    //       publishingYear: z.number(),
-    //     }),
-    //   )
-    //   .mutation(async ({ input }) => {
-    //     return this.moviesService.addMovie(
-    //       input.userId,
-    //       input.title,
-    //       input.publishingYear,
-    //     );
-    //   }),
+    addMovie: this.t.procedure
+      .input(
+        z.object({
+          userId: z.number(),
+          title: z.string(),
+          publishingYear: z.number(),
+        }),
+      )
+      .mutation(async ({ input }) => {
+        return this.moviesService.addMovie(
+          input.userId,
+          input.title,
+          input.publishingYear,
+        );
+      }),
 
-    // editMovie: this.t.procedure
-    //   .input(
-    //     z.object({
-    //       id: z.number(),
-    //       userId: z.number(),
-    //       title: z.string(),
-    //       publishingYear: z.number(),
-    //     }),
-    //   )
-    //   .mutation(async ({ input }) => {
-    //     return this.moviesService.editMovie(
-    //       input.id,
-    //       input.userId,
-    //       input.title,
-    //       input.publishingYear,
-    //     );
-    //   }),
+    editMovie: this.t.procedure
+      .input(
+        z.object({
+          id: z.number(),
+          userId: z.number(),
+          title: z.string(),
+          publishingYear: z.number(),
+        }),
+      )
+      .mutation(async ({ input }) => {
+        return this.moviesService.editMovie(
+          input.id,
+          input.userId,
+          input.title,
+          input.publishingYear,
+        );
+      }),
   });
 }
 

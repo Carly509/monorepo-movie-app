@@ -2,10 +2,10 @@ import { Module } from '@nestjs/common';
 import { TrpcRouter } from './trpc.router';
 import { TrpcService } from './trpc.service';
 import { AuthModule } from '../auth/auth.module';
-// import { MoviesModule } from '../movies/movies.module';
+import { MoviesModule } from '../movies/movies.module';
 
 @Module({
-  imports: [AuthModule],
+  imports: [AuthModule, MoviesModule],
   providers: [TrpcRouter, TrpcService],
   exports: [TrpcService],
 })

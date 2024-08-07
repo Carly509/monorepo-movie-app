@@ -14,9 +14,11 @@ const common_1 = require("@nestjs/common");
 const server_1 = require("@trpc/server");
 const zod_1 = require("zod");
 const auth_service_1 = require("../auth/auth.service");
+const movies_service_1 = require("../movies/movies.service");
 let TrpcRouter = class TrpcRouter {
-    constructor(authService) {
+    constructor(authService, moviesService) {
         this.authService = authService;
+        this.moviesService = moviesService;
         this.t = server_1.initTRPC.create();
         this.appRouter = this.t.router({
             register: this.t.procedure
@@ -33,12 +35,37 @@ let TrpcRouter = class TrpcRouter {
                 .mutation(async ({ input }) => {
                 return this.authService.login(input.email, input.password);
             }),
+            getMovies: this.t.procedure
+                .input(zod_1.z.object({ userId: zod_1.z.number() }))
+                .query(async ({ input }) => {
+                return this.moviesService.getMovies(input.userId);
+            }),
+            addMovie: this.t.procedure
+                .input(zod_1.z.object({
+                userId: zod_1.z.number(),
+                title: zod_1.z.string(),
+                publishingYear: zod_1.z.number(),
+            }))
+                .mutation(async ({ input }) => {
+                return this.moviesService.addMovie(input.userId, input.title, input.publishingYear);
+            }),
+            editMovie: this.t.procedure
+                .input(zod_1.z.object({
+                id: zod_1.z.number(),
+                userId: zod_1.z.number(),
+                title: zod_1.z.string(),
+                publishingYear: zod_1.z.number(),
+            }))
+                .mutation(async ({ input }) => {
+                return this.moviesService.editMovie(input.id, input.userId, input.title, input.publishingYear);
+            }),
         });
     }
 };
 exports.TrpcRouter = TrpcRouter;
 exports.TrpcRouter = TrpcRouter = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [auth_service_1.AuthService])
+    __metadata("design:paramtypes", [auth_service_1.AuthService,
+        movies_service_1.MoviesService])
 ], TrpcRouter);
 //# sourceMappingURL=trpc.router.js.map

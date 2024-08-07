@@ -1,7 +1,9 @@
 import { AuthService } from '../auth/auth.service';
+import { MoviesService } from '../movies/movies.service';
 export declare class TrpcRouter {
     private authService;
-    constructor(authService: AuthService);
+    private moviesService;
+    constructor(authService: AuthService, moviesService: MoviesService);
     t: {
         _config: import("@trpc/server").RootConfig<{
             ctx: object;
@@ -115,6 +117,94 @@ export declare class TrpcRouter {
             _output_out: typeof import("@trpc/server").unsetMarker;
         }, {
             access_token: string;
+        }>;
+        getMovies: import("@trpc/server").BuildProcedure<"query", {
+            _config: import("@trpc/server").RootConfig<{
+                ctx: object;
+                meta: object;
+                errorShape: never;
+                transformer: import("@trpc/server").DataTransformerOptions;
+            }>;
+            _meta: object;
+            _ctx_out: object;
+            _input_in: {
+                userId?: number;
+            };
+            _input_out: {
+                userId?: number;
+            };
+            _output_in: typeof import("@trpc/server").unsetMarker;
+            _output_out: typeof import("@trpc/server").unsetMarker;
+        }, {
+            id: number;
+            title: string;
+            publishingYear: number;
+            imageUrl: string;
+            userId: number;
+            createdAt: Date;
+            updatedAt: Date;
+        }[]>;
+        addMovie: import("@trpc/server").BuildProcedure<"mutation", {
+            _config: import("@trpc/server").RootConfig<{
+                ctx: object;
+                meta: object;
+                errorShape: never;
+                transformer: import("@trpc/server").DataTransformerOptions;
+            }>;
+            _meta: object;
+            _ctx_out: object;
+            _input_in: {
+                title?: string;
+                publishingYear?: number;
+                userId?: number;
+            };
+            _input_out: {
+                title?: string;
+                publishingYear?: number;
+                userId?: number;
+            };
+            _output_in: typeof import("@trpc/server").unsetMarker;
+            _output_out: typeof import("@trpc/server").unsetMarker;
+        }, {
+            id: number;
+            title: string;
+            publishingYear: number;
+            imageUrl: string;
+            userId: number;
+            createdAt: Date;
+            updatedAt: Date;
+        }>;
+        editMovie: import("@trpc/server").BuildProcedure<"mutation", {
+            _config: import("@trpc/server").RootConfig<{
+                ctx: object;
+                meta: object;
+                errorShape: never;
+                transformer: import("@trpc/server").DataTransformerOptions;
+            }>;
+            _meta: object;
+            _ctx_out: object;
+            _input_in: {
+                id?: number;
+                title?: string;
+                publishingYear?: number;
+                userId?: number;
+            };
+            _input_out: {
+                id?: number;
+                title?: string;
+                publishingYear?: number;
+                userId?: number;
+            };
+            _output_in: typeof import("@trpc/server").unsetMarker;
+            _output_out: typeof import("@trpc/server").unsetMarker;
+        }, {
+            id: number;
+            title: string;
+            publishingYear: number;
+            imageUrl: string;
+            userId: number;
+            createdAt: Date;
+            updatedAt: Date;
         }>;
     }>;
 }

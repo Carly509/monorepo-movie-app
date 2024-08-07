@@ -11,12 +11,13 @@ const common_1 = require("@nestjs/common");
 const trpc_router_1 = require("./trpc.router");
 const trpc_service_1 = require("./trpc.service");
 const auth_module_1 = require("../auth/auth.module");
+const movies_module_1 = require("../movies/movies.module");
 let TrpcModule = class TrpcModule {
 };
 exports.TrpcModule = TrpcModule;
 exports.TrpcModule = TrpcModule = __decorate([
     (0, common_1.Module)({
-        imports: [auth_module_1.AuthModule],
+        imports: [auth_module_1.AuthModule, movies_module_1.MoviesModule],
         providers: [trpc_router_1.TrpcRouter, trpc_service_1.TrpcService],
         exports: [trpc_service_1.TrpcService],
     })

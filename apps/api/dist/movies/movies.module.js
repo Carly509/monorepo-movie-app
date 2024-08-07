@@ -6,17 +6,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
+exports.MoviesModule = void 0;
 const common_1 = require("@nestjs/common");
-const auth_module_1 = require("./auth/auth.module");
-const movies_module_1 = require("./movies/movies.module");
-const trpc_module_1 = require("./trpc/trpc.module");
-let AppModule = class AppModule {
+const movies_controller_1 = require("./movies.controller");
+const movies_service_1 = require("./movies.service");
+const prisma_service_1 = require("../prisma.service");
+const auth_module_1 = require("../auth/auth.module");
+let MoviesModule = class MoviesModule {
 };
-exports.AppModule = AppModule;
-exports.AppModule = AppModule = __decorate([
+exports.MoviesModule = MoviesModule;
+exports.MoviesModule = MoviesModule = __decorate([
     (0, common_1.Module)({
-        imports: [auth_module_1.AuthModule, trpc_module_1.TrpcModule, movies_module_1.MoviesModule],
+        imports: [auth_module_1.AuthModule],
+        controllers: [movies_controller_1.MoviesController],
+        providers: [movies_service_1.MoviesService, prisma_service_1.PrismaService],
+        exports: [movies_service_1.MoviesService],
     })
-], AppModule);
-//# sourceMappingURL=app.module.js.map
+], MoviesModule);
+//# sourceMappingURL=movies.module.js.map
