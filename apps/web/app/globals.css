@@ -1,23 +1,23 @@
 :root {
-  --background-color: #093645;  /* Existing background color */
-  --text-color: #FFFFFF;        /* Existing text color */
+  --background-color: #093645;
+  --text-color: #FFFFFF;
   --input-background: rgba(255, 255, 255, 0.1);
   --button-background: #4CAF50;
   --button-hover: #45a049;
   --wave-color-1: #0b444a;
   --wave-color-2: #264c5a;
 
-  /* New color variables */
-  --primary: #2BD17E;           /* Primary color */
-  --error: #EB5757;             /* Error color */
-  --input-color: #224957;       /* Input color */
-  --card-color: #092C39;        /* Card color for movies */
+  /* color variables */
+  --primary: #2BD17E;
+  --error: #EB5757;
+  --input-color: #224957;
+  --card-color: #092C39;
 
   /* Font settings */
-  --font-family: 'Montserrat', sans-serif; /* Font family */
-  --font-weight-bold: 700;      /* Bold weight */
-  --font-weight-semi-bold: 600; /* Semi-bold weight */
-  --font-weight-regular: 400;   /* Regular weight */
+  --font-family: 'Montserrat', sans-serif;
+  --font-weight-bold: 700;
+  --font-weight-semi-bold: 600;
+  --font-weight-regular: 400;
 
   /* Spacing */
   --spacing-2: 2px;
@@ -28,15 +28,15 @@
   --spacing-24: 24px;
 
   /* Layout settings */
-  --max-width: 1440px;          /* Max width */
-  --columns: 12;                /* Number of columns */
-  --margin: 120px;              /* Margin */
-  --gutter-width: 24px;         /* Gutter width */
+  --max-width: 1440px;
+  --columns: 12;
+  --margin: 120px;
+  --gutter-width: 24px;
 
   /* Heading styles */
-  --heading-one-weight: 600;    /* Heading one weight */
-  --heading-one-size: 64px;     /* Heading one size */
-  --heading-one-line-height: 80px; /* Heading one line height */
+  --heading-one-weight: 600;
+  --heading-one-size: 64px;
+  --heading-one-line-height: 80px;
 }
 
 body {

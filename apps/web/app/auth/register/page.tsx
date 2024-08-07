@@ -17,7 +17,7 @@ export default function Register() {
     onSuccess: (data) => {
       // Store the token in localStorage or a secure cookie
       localStorage.setItem('token', data.access_token);
-      router.push('/movies');
+      router.push('/movies/movies-list');
     },
     onError: (error) => {
       alert(error.message);

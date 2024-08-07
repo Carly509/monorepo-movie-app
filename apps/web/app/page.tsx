@@ -7,16 +7,14 @@ import { useAuth } from '../utils/auth-context';
 
 export default function Home() {
     const router = useRouter();
-    const { isLoggedIn } = useAuth(); // Get the authentication status
+    const { isLoggedIn } = useAuth();
 
     useEffect(() => {
       if (isLoggedIn) {
-        // If the user is logged in, redirect to the dashboard or another page
-        router.push('/movies'); // Change '/dashboard' to your desired route
+        router.push('/movies/movies-list');
       }
     }, [isLoggedIn, router]);
 
-    // If the user is not logged in, render the Login component
     return (
       <main>
         {!isLoggedIn && <Login />}

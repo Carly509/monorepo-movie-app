@@ -20,7 +20,7 @@ import styles from './login.module.css';
       // Handle successful login
       login(data.access_token);
       console.log(data);
-      router.push('/movies');
+      router.push('/movies/movies-list');
     },
     onError: (error) => {
       // Handle error
