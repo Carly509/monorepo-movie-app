@@ -12,6 +12,8 @@ export default function Home() {
     useEffect(() => {
       if (isLoggedIn) {
         router.push('/movies/movies-list');
+      } else {
+        router.push('/auth/login');
       }
     }, [isLoggedIn, router]);
 
@@ -20,4 +22,4 @@ export default function Home() {
         {!isLoggedIn && <Login />}
       </main>
     );
-  }
+}
