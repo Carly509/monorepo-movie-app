@@ -11,7 +11,7 @@ export declare class MoviesService {
         createdAt: Date;
         updatedAt: Date;
     }[]>;
-    addMovie(userId: number, title: string, publishingYear: number): Promise<{
+    addMovie(userId: number, title: string, publishingYear: number, imageUrl?: string): Promise<{
         id: number;
         title: string;
         publishingYear: number;
@@ -20,7 +20,7 @@ export declare class MoviesService {
         createdAt: Date;
         updatedAt: Date;
     }>;
-    editMovie(id: number, userId: number, title: string, publishingYear: number): Promise<{
+    editMovie(id: number, userId: number, title: string, publishingYear: number, imageUrl?: string): Promise<{
         id: number;
         title: string;
         publishingYear: number;

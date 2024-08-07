@@ -26,7 +26,20 @@ export default function Movies() {
 
   return (
     <div className={styles.container}>
-      <nav className={styles.navbar}>
+
+      {movies?.length === 0 ? (
+        <div className={styles.noMovies}>
+          <h1>Your movie list is empty</h1>
+          <button
+            className={styles.addNewMovieButton}
+            onClick={() => router.push('/create-movie')}
+          >
+            Add A New Movie
+          </button>
+        </div>
+      ) : (
+        <div className={styles.movieContainer}>
+          <nav className={styles.navbar}>
         <div className={styles.navbarLeft}>
           <h1 className={styles.navbarTitle}>My movies</h1>
           <button
@@ -42,35 +55,26 @@ export default function Movies() {
           </button>
         </div>
       </nav>
-
-      {movies?.length === 0 ? (
-        <div className={styles.noMovies}>
-          <h1>Your movie list is empty</h1>
-          <button
-            className={styles.addNewMovieButton}
-            onClick={() => router.push('/create-movie')}
-          >
-            Add A New Movie
-          </button>
-        </div>
-      ) : (
-        <div className={styles.movieContainer}>
           <div className={styles.movieGrid}>
             {currentMovies?.map((movie) => (
               <div
-                  key={movie.id}
-                  className={styles.movieCard}
-                  onClick={() => router.push(`/movies/edit-movie?movie_id=${movie.id}&title=${encodeURIComponent(movie.title)}&year=${movie.publishingYear}`)}
+                key={movie.id}
+                className={styles.movieCard}
+                onClick={() => router.push(`/movies/edit-movie?movie_id=${movie.id}&title=${encodeURIComponent(movie.title)}&year=${movie.publishingYear}&image=${movie.imageUrl}`)}
               >
-                <Image
-                  src={movie.imageUrl || '/placeholder.jpg'}
-                  alt={movie.title}
-                  width={200}
-                  height={300}
-                  className={styles.moviePoster}
-                />
-                <p className={styles.movieTitle}>{movie.title}</p>
-                <p className={styles.movieYear}>{movie.publishingYear}</p>
+                <div className={styles.moviePosterContainer}>
+                  <Image
+                    src={movie.imageUrl || '/placeholder.jpg'}
+                    alt={movie.title}
+                    layout="fill"
+                    objectFit="cover"
+                    className={styles.moviePoster}
+                  />
+                </div>
+                <div className={styles.movieInfo}>
+                  <p className={styles.movieTitle}>{movie.title}</p>
+                  <p className={styles.movieYear}>{movie.publishingYear}</p>
+                </div>
               </div>
             ))}
           </div>

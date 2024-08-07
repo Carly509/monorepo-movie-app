@@ -48,6 +48,7 @@ export class TrpcRouter {
           userId: z.number(),
           title: z.string(),
           publishingYear: z.number(),
+          imageUrl: z.string(),
         }),
       )
       .mutation(async ({ input }) => {
@@ -55,6 +56,7 @@ export class TrpcRouter {
           input.userId,
           input.title,
           input.publishingYear,
+          input.imageUrl,
         );
       }),
 
@@ -65,6 +67,7 @@ export class TrpcRouter {
           userId: z.number(),
           title: z.string(),
           publishingYear: z.number(),
+          imageUrl: z.string(),
         }),
       )
       .mutation(async ({ input }) => {
@@ -73,6 +76,7 @@ export class TrpcRouter {
           input.userId,
           input.title,
           input.publishingYear,
+          input.imageUrl,
         );
       }),
   });

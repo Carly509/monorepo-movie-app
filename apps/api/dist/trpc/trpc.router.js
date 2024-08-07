@@ -45,9 +45,10 @@ let TrpcRouter = class TrpcRouter {
                 userId: zod_1.z.number(),
                 title: zod_1.z.string(),
                 publishingYear: zod_1.z.number(),
+                imageUrl: zod_1.z.string(),
             }))
                 .mutation(async ({ input }) => {
-                return this.moviesService.addMovie(input.userId, input.title, input.publishingYear);
+                return this.moviesService.addMovie(input.userId, input.title, input.publishingYear, input.imageUrl);
             }),
             editMovie: this.t.procedure
                 .input(zod_1.z.object({
@@ -55,9 +56,10 @@ let TrpcRouter = class TrpcRouter {
                 userId: zod_1.z.number(),
                 title: zod_1.z.string(),
                 publishingYear: zod_1.z.number(),
+                imageUrl: zod_1.z.string(),
             }))
                 .mutation(async ({ input }) => {
-                return this.moviesService.editMovie(input.id, input.userId, input.title, input.publishingYear);
+                return this.moviesService.editMovie(input.id, input.userId, input.title, input.publishingYear, input.imageUrl);
             }),
         });
     }

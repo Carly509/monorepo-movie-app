@@ -9,12 +9,18 @@ export class MoviesService {
     return this.prisma.movie.findMany({ where: { userId } });
   }
 
-  async addMovie(userId: number, title: string, publishingYear: number) {
+  async addMovie(
+    userId: number,
+    title: string,
+    publishingYear: number,
+    imageUrl?: string,
+  ) {
     return this.prisma.movie.create({
       data: {
         title,
         publishingYear,
         userId,
+        imageUrl,
       },
     });
   }
@@ -24,10 +30,11 @@ export class MoviesService {
     userId: number,
     title: string,
     publishingYear: number,
+    imageUrl?: string,
   ) {
     return this.prisma.movie.update({
       where: { id, userId },
-      data: { title, publishingYear },
+      data: { title, publishingYear, imageUrl },
     });
   }
 }

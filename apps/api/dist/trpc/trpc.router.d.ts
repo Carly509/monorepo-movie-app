@@ -156,11 +156,13 @@ export declare class TrpcRouter {
             _input_in: {
                 title?: string;
                 publishingYear?: number;
+                imageUrl?: string;
                 userId?: number;
             };
             _input_out: {
                 title?: string;
                 publishingYear?: number;
+                imageUrl?: string;
                 userId?: number;
             };
             _output_in: typeof import("@trpc/server").unsetMarker;
@@ -187,12 +189,14 @@ export declare class TrpcRouter {
                 id?: number;
                 title?: string;
                 publishingYear?: number;
+                imageUrl?: string;
                 userId?: number;
             };
             _input_out: {
                 id?: number;
                 title?: string;
                 publishingYear?: number;
+                imageUrl?: string;
                 userId?: number;
             };
             _output_in: typeof import("@trpc/server").unsetMarker;

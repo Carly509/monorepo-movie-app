@@ -18,18 +18,18 @@ export default function EditMovie() {
     const movieIdString = searchParams.get('movie_id');
     const initialTitle = searchParams.get('title');
     const initialYear = searchParams.get('year');
+    const initialImage = searchParams.get('image');
 
     const movieId = movieIdString ? parseInt(movieIdString, 10) : undefined;
 
 
     const [title, setTitle] = useState<string>(typeof initialTitle === 'string' ? initialTitle : '');
     const [publishingYear, setPublishingYear] = useState<string>(typeof initialYear === 'string' ? initialYear : '');
-    const [image, setImage] = useState<string | null>(null);
+    const [image, setImage] = useState<string>(typeof initialImage === 'string' ? initialImage : '');
 
     // const { data: movie, isLoading } = trpc.movie.getMovie.useQuery({ id: movieId });
 
     useEffect(() => {
-        // Set the title and year from the query parameters when they are available
         if (typeof initialTitle === 'string') {
             setTitle(initialTitle);
         }
@@ -61,7 +61,7 @@ export default function EditMovie() {
             userId,
             title,
             publishingYear: parseInt(publishingYear, 10),
-            image, // Include image if needed
+            imageUrl: image,
         });
       };
 

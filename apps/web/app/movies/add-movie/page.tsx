@@ -35,6 +35,7 @@ export default function CreateMovie() {
       userId,
       title,
       publishingYear: parseInt(publishingYear, 10),
+      imageUrl: image,
     });
   };
 

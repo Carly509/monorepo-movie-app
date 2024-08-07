@@ -1,20 +1,20 @@
   .formContainer {
     background-color: var(--background-color);
-    padding: var(--spacing-8);    /* Use spacing variable for padding */
+    padding: var(--spacing-8);
     border-radius: 8px;
   }
 
   .title {
     color: var(--text-color);
-    margin-bottom: var(--spacing-16); /* Use spacing variable for margin */
-    text-align: center;           /* Center text horizontally */
-    display: flex;                /* Enable flexbox */
-    justify-content: center;      /* Center content horizontally */
-    align-items: center;          /* Center content vertically */
-    font-weight: var(--heading-one-weight); /* Use heading weight */
-    font-size: var(--heading-one-size);     /* Use heading size */
-    line-height: var(--heading-one-line-height); /* Use heading line height */
-    font-family: var(--font-family); /* Apply Montserrat font */
+    margin-bottom: var(--spacing-16);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: var(--heading-one-weight);
+    font-size: var(--heading-one-size);
+    line-height: var(--heading-one-line-height);
+    font-family: var(--font-family);
   }
 
   .form {
@@ -23,37 +23,37 @@
   }
 
   .input {
-    margin-bottom: var(--spacing-8); /* Use spacing variable for margin */
+    margin-bottom: var(--spacing-8);
     background-color: var(--input-background);
     border-radius: 5px;
     width: 385px;
-    font-family: var(--font-family); /* Apply Montserrat font */
-    font-weight: var(--font-weight-regular); /* Normal weight for input text */
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-regular);
   }
 
   .input input {
     color: var(--text-color);
-    font-family: var(--font-family); /* Apply Montserrat font */
-    font-weight: var(--font-weight-regular); /* Normal weight for input text */
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-regular);
   }
 
   .input label {
     color: var(--text-color);
-    font-family: var(--font-family); /* Apply Montserrat font */
-    font-weight: var(--font-weight-regular); /* Normal weight for label text */
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-regular);
   }
 
   .input:hover {
-    border-color: #651c1c; /* Change to your desired hover border color */
+    border-color: #651c1c;
   }
 
   .button {
     background-color: var(--button-background);
     color: var(--text-color);
-    padding: var(--spacing-8);    /* Use spacing variable for padding */
+    padding: var(--spacing-8);
     font-size: 1rem;
-    font-family: var(--font-family); /* Apply Montserrat font */
-    font-weight: var(--font-weight-bold); /* Bold weight for button text */
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-bold);
     text-transform: none;
   }
 
@@ -62,14 +62,14 @@
   }
 
   .linkContainer {
-    margin-top: var(--spacing-8); /* Use spacing variable for margin */
+    margin-top: var(--spacing-8);
     text-align: center;
   }
 
   .link {
     color: var(--text-color);
     text-decoration: none;
-    font-family: var(--font-family); /* Apply Montserrat font */
+    font-family: var(--font-family);
   }
 
   .link:hover {

@@ -19,19 +19,20 @@ let MoviesService = class MoviesService {
     async getMovies(userId) {
         return this.prisma.movie.findMany({ where: { userId } });
     }
-    async addMovie(userId, title, publishingYear) {
+    async addMovie(userId, title, publishingYear, imageUrl) {
         return this.prisma.movie.create({
             data: {
                 title,
                 publishingYear,
                 userId,
+                imageUrl,
             },
         });
     }
-    async editMovie(id, userId, title, publishingYear) {
+    async editMovie(id, userId, title, publishingYear, imageUrl) {
         return this.prisma.movie.update({
             where: { id, userId },
-            data: { title, publishingYear },
+            data: { title, publishingYear, imageUrl },
         });
     }
 };

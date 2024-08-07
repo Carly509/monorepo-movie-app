@@ -24,10 +24,10 @@ let MoviesController = class MoviesController {
         return this.moviesService.getMovies(req.user.sub);
     }
     async addMovie(req, body) {
-        return this.moviesService.addMovie(req.user.sub, body.title, body.publishingYear);
+        return this.moviesService.addMovie(req.user.sub, body.title, body.publishingYear, body.imageUrl);
     }
     async editMovie(req, id, body) {
-        return this.moviesService.editMovie(parseInt(id), req.user.sub, body.title, body.publishingYear);
+        return this.moviesService.editMovie(parseInt(id), req.user.sub, body.title, body.publishingYear, body.imageUrl);
     }
 };
 exports.MoviesController = MoviesController;

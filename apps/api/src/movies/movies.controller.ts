@@ -24,12 +24,13 @@ export class MoviesController {
   @Post()
   async addMovie(
     @Request() req,
-    @Body() body: { title: string; publishingYear: number },
+    @Body() body: { title: string; publishingYear: number; imageUrl?: string },
   ) {
     return this.moviesService.addMovie(
       req.user.sub,
       body.title,
       body.publishingYear,
+      body.imageUrl,
     );
   }
 
@@ -37,13 +38,14 @@ export class MoviesController {
   async editMovie(
     @Request() req,
     @Param('id') id: string,
-    @Body() body: { title: string; publishingYear: number },
+    @Body() body: { title: string; publishingYear: number; imageUrl?: string },
   ) {
     return this.moviesService.editMovie(
       parseInt(id),
       req.user.sub,
       body.title,
       body.publishingYear,
+      body.imageUrl,
     );
   }
 }

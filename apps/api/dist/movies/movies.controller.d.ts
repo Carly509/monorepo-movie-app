@@ -14,6 +14,7 @@ export declare class MoviesController {
     addMovie(req: any, body: {
         title: string;
         publishingYear: number;
+        imageUrl?: string;
     }): Promise<{
         id: number;
         title: string;
@@ -26,6 +27,7 @@ export declare class MoviesController {
     editMovie(req: any, id: string, body: {
         title: string;
         publishingYear: number;
+        imageUrl?: string;
     }): Promise<{
         id: number;
         title: string;
