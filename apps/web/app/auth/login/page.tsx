@@ -15,23 +15,27 @@ import styles from './login.module.css';
   const router = useRouter();
   const { login } = useAuth();
 
-  const loginMutation = trpc.login.useMutation({
+  const mutation = trpc.login.useMutation({
     onSuccess: (data) => {
+      // Handle successful login
       login(data.access_token);
+      console.log(data);
       router.push('/movies');
     },
     onError: (error) => {
+      // Handle error
       alert(error.message);
     },
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    loginMutation.mutate({ email, password });
+    // Call the mutate function from the mutation object
+    await mutation.mutateAsync({ email, password });
   };
 
   return (
-    <div className={styles.container}>
+
       <div className={styles.formContainer}>
         <Typography variant="h4" component="h1" className={styles.title}>
           Sign in
@@ -70,6 +74,7 @@ import styles from './login.module.css';
           <Button type="submit" variant="contained" fullWidth className={styles.button}>
             Login
           </Button>
+          {mutation.error && <p>{mutation.error.message}</p>}
         </form>
         <Box className={styles.linkContainer}>
           <Link href="/auth/register" className={styles.link}>
@@ -77,10 +82,5 @@ import styles from './login.module.css';
           </Link>
         </Box>
       </div>
-      <div className="wave-container">
-        <div className="wave wave1"></div>
-        <div className="wave wave2"></div>
-      </div>
-    </div>
   );
 }

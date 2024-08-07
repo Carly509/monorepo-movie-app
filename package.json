@@ -18,7 +18,11 @@
     "node": ">=18"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.51.16",
     "@trpc/client": "^10.45.2",
+    "@trpc/next": "^10.45.2",
+    "@trpc/react-query": "^10.45.2",
+    "@trpc/server": "^10.45.2",
     "node-fetch": "^3.3.2"
   }
 }
