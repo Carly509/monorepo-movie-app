@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-monorepomovieapp-dev-2f50e-authRole",
+      "UnauthRoleArn": "arn:aws:iam::026090550611:role/amplify-monorepomovieapp-dev-2f50e-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::026090550611:role/amplify-monorepomovieapp-dev-2f50e-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-monorepomovieapp-dev-2f50e-deployment",
+      "UnauthRoleName": "amplify-monorepomovieapp-dev-2f50e-unauthRole",
+      "StackName": "amplify-monorepomovieapp-dev-2f50e",
+      "StackId": "arn:aws:cloudformation:us-east-1:026090550611:stack/amplify-monorepomovieapp-dev-2f50e/c377a260-558a-11ef-acfa-124459f68265",
+      "AmplifyAppId": "d2eh14cfn7e2i1"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "projectName": "monorepomovieapp",
+  "version": "3.1",
+  "frontend": "javascript",
+  "javascript": {
+    "framework": "none",
+    "config": {
+      "SourceDir": "apps",
+      "DistributionDir": "dist",
+      "BuildCommand": "pnpm run build",
+      "StartCommand": "pnpm run dev"
+    }
+  },
+  "providers": [
+    "awscloudformation"
+  ]
+}
